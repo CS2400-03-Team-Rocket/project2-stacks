@@ -167,7 +167,7 @@ public class LinkedStack<T> implements StackInterface<T>{
         }
     }
 
-    public static void main(String [] args) throws Exception
+    public static void main(String[] args) throws Exception
     {
         //expression is a*b/(c-a)+d*e
         //postfix is ab*ca-/de*+
@@ -205,22 +205,41 @@ public class LinkedStack<T> implements StackInterface<T>{
         //manual conversion result
         System.out.println(postfixExpression);
 
+        //expression is a*b/(c-a)+d*e
         //postfix is ab*ca-/de*+
         //a=2, b=3, c=4, d=5, e=6
         //answer should be 30
         int answer = 0;
         LinkedStack<Integer> operands = new LinkedStack<Integer>();
+        int first, second;
         operands.push(2);
         operands.push(3);
-        operands.push(operands.pop() * operands.pop());
+
+        second = operands.pop();
+        first = operands.pop();
+        operands.push(first * second);
+
         operands.push(4);
-        operands.push(1);
-        operands.push(operands.pop() - operands.pop());
-        operands.push(operands.pop() / operands.pop());
+        operands.push(2);
+
+        second = operands.pop();
+        first = operands.pop();
+        operands.push(first - second);
+
+        second = operands.pop();
+        first = operands.pop();
+        operands.push(first / second);
+
         operands.push(5);
         operands.push(6);
-        operands.push(operands.pop() * operands.pop());
-        operands.push(operands.pop() + operands.pop());
+
+        second = operands.pop();
+        first = operands.pop();
+        operands.push(first * second);
+
+        second = operands.pop();
+        first = operands.pop();
+        operands.push(first + second);
         answer = operands.pop();
 
         //manual eval postfix expression

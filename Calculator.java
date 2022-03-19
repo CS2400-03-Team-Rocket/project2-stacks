@@ -125,19 +125,20 @@ public class Calculator {
         postfixExpression += operators.pop();
         postfixExpression += operators.pop();
 
-        //using convertToPostfix() method
-        System.out.println(convertToPostfix("a*b/(c-a)+d*e"));
-
         //manual conversion result
         System.out.println(postfixExpression);
+        
+        //using convertToPostfix() method
+        System.out.println(convertToPostfix("a*b/(c-a)+d*e"));
 
         //expression is a*b/(c-a)+d*e
         //postfix is ab*ca-/de*+
         //a=2, b=3, c=4, d=5, e=6
-        //answer should be 30
+        //answer should be 33
         int answer = 0;
         LinkedStack<Integer> operands = new LinkedStack<Integer>();
         int first, second;
+        
         operands.push(2);
         operands.push(3);
 
