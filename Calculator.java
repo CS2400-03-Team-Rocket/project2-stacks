@@ -1,5 +1,10 @@
 public class Calculator {
 
+    /**converts an infix expression to postfix
+     * @param input an infix string to be converted to postfix
+     * @return a string containing the computed postfix expression 
+     * @throws Exception when the stack empty and we call peek
+     */
     public static String convertToPostfix(String input) throws Exception
     {
         //initialize operator stack

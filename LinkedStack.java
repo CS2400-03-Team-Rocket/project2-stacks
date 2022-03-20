@@ -6,11 +6,18 @@ public class LinkedStack<T> implements StackInterface<T>{
         topNode = null;
     }
 
+    /**adds a new entry to the LinkedStack
+    @param newEntry an entry to be added to the LinkedStack
+    */
     public void push(T newEntry){
         Node newNode = new Node(newEntry, topNode);
         topNode = newNode;
     }
 
+    /**pops the top element from the LinkedStack
+     * @return the element that was popped from the LinkedStack 
+     * @throws Exception if the LinkedStack is empty when we call peek
+     */
     public T pop() throws Exception
     {
         T top = peek();
@@ -18,6 +25,10 @@ public class LinkedStack<T> implements StackInterface<T>{
         return top;
     }
 
+    /**returns the top element in the LinkedStack 
+     * @return the top element in the stack
+     * @throws Exception if the LinkedStack empty 
+     */
     public T peek() throws Exception
     {
         if(isEmpty())
@@ -31,16 +42,27 @@ public class LinkedStack<T> implements StackInterface<T>{
         
     }
 
+    /**returns a true or false value based on if the LinkedStack is empty or not 
+     * @return a boolean based on if the LinkedStack is empty or not
+     */
     public boolean isEmpty()
     {
         return topNode == null;
     }
 
+    /**clears the LinkedStack by setting the topNode to null
+     * the rest of the entries will be garbage collected
+     */
     public void clear()
     {
         topNode = null;
     }
 
+    /**converts an infix expression to postfix
+     * @param input an infix string to be converted to postfix
+     * @return a string containing the computed postfix expression 
+     * @throws Exception when the stack empty and we call peek
+     */
     public static String convertToPostfix(String input) throws Exception
     {
         //initialize operator stack
