@@ -66,18 +66,13 @@ public class Calculator {
                 //checks for + and -
                 else if(current == '+' || current == '-')
                 {
-                    /*if there is a higher precedence opperator when we peek() ->
+                    /**if there is a higher precedence opperator 
+                    * or if peek is + or - when we peek() ->
                     * pop() and add it the postfixExpression
                     * push() the current char to the operator stack
                     */
-                    if(operators.peek() == '*' || operators.peek() == '/')
-                    {
-                        postfixExpression += operators.pop();
-                        operators.push(current);
-                    }
-                    //if peek is + or - then pop() and add it to the postfixExpression
-                    //push the current char to the operator stack
-                    else if(operators.peek() == '+' || operators.peek() == '-')
+                    if(operators.peek() == '*' || operators.peek() == '/' || 
+                    operators.peek() == '+' || operators.peek() == '-')
                     {
                         postfixExpression += operators.pop();
                         operators.push(current);
