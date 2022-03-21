@@ -94,6 +94,42 @@ public class Calculator {
         return postfixExpression;
     }
 
+    public static int evalutatingPostfix(String infix)
+    {
+        //new stack that holds result
+        ResizableArrayStack<Integer> stack = new ResizableArrayStack<>(infix.length());
+        for (int i = 0 ; i < infix.length() ; i++)
+        {
+            //checks if char is a digit
+            if (infix.charAt(i) >= '0' && infix.charAt(i) <= '9')
+                stack.push(infix.charAt(i) - '0');
+            //if not a digit, checks the operator and performs correct operation
+            else
+            {
+                int a = stack.pop();
+                int b = stack.pop();
+                if (infix.charAt(i) == '*'){
+                    int result = a * b;
+                    stack.push(result);
+                }
+                else if (infix.charAt(i) == '/'){
+                    int result = b / a;
+                    stack.push(result);
+                }
+                else if (infix.charAt(i) == '+'){
+                    int result = a + b;
+                    stack.push(result);
+                }
+                else if (infix.charAt(i) == '-'){
+                    int result = b - a;
+                    stack.push(result);
+                }
+            }
+        }
+        return stack.peek();
+    }
+
+
     
     public static void main(String[] args) throws Exception
     {
@@ -173,5 +209,8 @@ public class Calculator {
 
         //manual eval postfix expression
         System.out.println(answer);
+
+        //using the evaluatePostfix() method 
+        System.out.println(evalutatingPostfix("23*42-/56*+"));
     }
 }
