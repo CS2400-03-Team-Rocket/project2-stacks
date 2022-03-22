@@ -25,6 +25,9 @@ public class ResizableArrayStack<T> implements StackInterface<T>
         integrityOK = true;
     } //end constructor
 
+    /**adds a new entry to the ResizableArrayStack
+    @param newEntry an entry to be added to the ResizableArrayStack
+    */
     public void push(T newEntry) 
     {
         checkIntegrity();
@@ -33,6 +36,9 @@ public class ResizableArrayStack<T> implements StackInterface<T>
         topIndex++;
     } //end push
 
+    /**pops the top element from the ResizableArrayStack
+     * @return the element that was popped from the ResizableArrayStack
+     */
     public T pop() 
     {
         checkIntegrity();
@@ -47,6 +53,9 @@ public class ResizableArrayStack<T> implements StackInterface<T>
         }
     }//end pop
 
+    /**returns the top element in the ResizableArrayStack
+     * @return the top element in the stack, null if stack is empty
+     */
     public T peek() 
     {
         checkIntegrity();
@@ -56,11 +65,17 @@ public class ResizableArrayStack<T> implements StackInterface<T>
             return stack[topIndex];
     }//end peek
 
+    /**returns a true or false value based on if the ResizableArrayStack is empty or not 
+     * @return a boolean based on if the ResizableArrayStack is empty or not
+     */
     public boolean isEmpty() 
     {
         return topIndex < 0;
     }//end IsEmpty
 
+    /**clears the LinkedStack by setting the topNode to null
+     * the rest of the entries will be garbage collected
+     */
     public void clear() 
     {
         checkIntegrity();
@@ -71,19 +86,29 @@ public class ResizableArrayStack<T> implements StackInterface<T>
         }//end while
     }//end clear
 
+    /**
+     * throws SecurityException if ResizableArrayStack object has not been initialized
+     */
     private void checkIntegrity()
    {
         if (!integrityOK)
-            throw new SecurityException("ArrayBag object is corrupt.");
+            throw new SecurityException("ResizableArrayStack object is corrupt.");
    }
 
+    /**
+     * throws IllegalStateException if hypothetical capacity is greater than the set MAX_CAPACITY
+     * @param capacity
+     */
     private void checkCapacity(int capacity)
     {
         if (capacity > MAX_CAPACITY)
-            throw new IllegalStateException("Attempt to create a bag whose capacity " +
+            throw new IllegalStateException("Attempt to create a stack whose capacity " +
                                             "exeeds allowed maximum of " + MAX_CAPACITY);
     }
 
+    /**
+     * doubles the length of the stack if the current capacity is reached
+     */
     private void ensureCapacity()
     {
         if (topIndex >= stack.length - 1)
