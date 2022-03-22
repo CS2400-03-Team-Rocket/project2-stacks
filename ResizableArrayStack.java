@@ -39,11 +39,11 @@ public class ResizableArrayStack<T> implements StackInterface<T>
     /**pops the top element from the ResizableArrayStack
      * @return the element that was popped from the ResizableArrayStack
      */
-    public T pop() 
+    public T pop() throws Exception
     {
         checkIntegrity();
         if (isEmpty())
-            return null;
+        	throw new Exception("stack is empty");
         else
         {
             T top = stack[topIndex];
@@ -55,12 +55,13 @@ public class ResizableArrayStack<T> implements StackInterface<T>
 
     /**returns the top element in the ResizableArrayStack
      * @return the top element in the stack, null if stack is empty
+     * @throws Exception if the stack is empty
      */
-    public T peek() 
+    public T peek() throws Exception
     {
         checkIntegrity();
         if (isEmpty())
-            return null;
+            throw new Exception("stack is empty");
         else
             return stack[topIndex];
     }//end peek
