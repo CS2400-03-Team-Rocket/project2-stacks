@@ -14,6 +14,13 @@ public class CalculatorTest extends Calculator
         mockLinkedStack.push(3);
         
         assertEquals((Integer)3, (Integer)mockLinkedStack.peek());
+        
+        ResizableArrayStack<Integer> mockResizableStack = new ResizableArrayStack<Integer>();
+        
+        mockResizableStack.push(5);
+        mockResizableStack.push(7);
+        
+        assertEquals((Integer)7, (Integer)mockResizableStack.peek());
     }
 
     @Test 
@@ -26,6 +33,14 @@ public class CalculatorTest extends Calculator
         mockLinkedStack.pop();
 
         assertEquals((Integer)4, (Integer)mockLinkedStack.peek());
+        
+        ResizableArrayStack<Integer> mockResizableStack = new ResizableArrayStack<Integer>();
+        
+		mockResizableStack.push(5);
+		mockResizableStack.push(7);
+		mockResizableStack.pop();
+
+        assertEquals((Integer)5, (Integer)mockResizableStack.peek());
     }
 
     @Test
@@ -39,6 +54,15 @@ public class CalculatorTest extends Calculator
         mockLinkedStack.push(7);
 
         assertEquals((Integer)7, (Integer)mockLinkedStack.peek());
+        
+        ResizableArrayStack<Integer> mockResizableStack = new ResizableArrayStack<Integer>();
+        
+    	mockResizableStack.push(5);
+    	mockResizableStack.push(7);
+    	mockResizableStack.pop();
+    	mockResizableStack.push(4);
+
+        assertEquals((Integer)4, (Integer)mockResizableStack.peek());
     }
 
     @Test
@@ -55,6 +79,18 @@ public class CalculatorTest extends Calculator
         mockLinkedStack.clear();
 
         assertEquals(true, mockLinkedStack.isEmpty());
+        
+        ResizableArrayStack<Integer> mockResizableStack = new ResizableArrayStack<Integer>();
+        
+    	mockResizableStack.push(5);
+    	mockResizableStack.push(7);
+    	mockResizableStack.push(4);
+
+        assertEquals(false, mockResizableStack.isEmpty());
+
+        mockResizableStack.clear();
+
+        assertEquals(true, mockResizableStack.isEmpty());
     }
 
     @Test
@@ -68,6 +104,15 @@ public class CalculatorTest extends Calculator
         mockLinkedStack.clear();
 
         assertEquals(true, mockLinkedStack.isEmpty());
+        
+        ResizableArrayStack<Integer> mockResizableStack = new ResizableArrayStack<Integer>();
+        
+    	mockResizableStack.push(5);
+    	mockResizableStack.push(7);
+    	mockResizableStack.push(4);
+    	mockResizableStack.clear();
+
+        assertEquals(true, mockResizableStack.isEmpty());
     }
 
     @Test
