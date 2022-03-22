@@ -94,7 +94,7 @@ public class Calculator {
         return postfixExpression;
     }
 
-    public static int evalutatingPostfix(String infix)
+    public static int evalutatingPostfix(String infix) throws Exception
     {
         //new stack that holds result
         ResizableArrayStack<Integer> stack = new ResizableArrayStack<>(infix.length());
