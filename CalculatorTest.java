@@ -125,6 +125,16 @@ public class CalculatorTest extends Calculator
 
         assertEquals(expectedPosfix, result);
     }
-
+    
+    @Test
+    public void testEvalutatingPostfix() throws Exception
+    {
+    	String postFix = "36+7*78+/";
+    	int expectedResult = 63/15;
+    	
+    	int result = evalutatingPostfix(postFix);
+    	
+    	assertEquals(expectedResult, result);
+    }
 
 }
